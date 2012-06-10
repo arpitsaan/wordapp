@@ -6,7 +6,7 @@ The project loads words from the data/ directory who have a format which is clea
 
 Currently it has two gameplay options:
 1. Revising the words by displaying the meaning and entering the relevant word from the list.
-2. A word quiz which displays a word and asks for the correct option word from the meaning list
+2. A word quiz which displays a word and asks for the correct option from the meaning list
 
 
 Fork it and make it more enjoyable!
