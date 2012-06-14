@@ -7,6 +7,7 @@ from random import *
 system('clear')
 tolearn=sys.argv[1:]
 
+
 if len(tolearn) == 0:
 	print 'No word data loaded\nUsage Example : appyapp c1 c2'
 
@@ -113,8 +114,10 @@ llist=[]
 mainlist=[]
 
 for fil in tolearn:
+	outfile= 'google_meaning_fetcher/'+fil
 	fil = 'data/'+fil
 	f=open(fil)
+	fout=open(outfile,'w')
 	llist=f.readlines()
 	for line in llist:
 		line=line.rstrip('\n')
@@ -122,6 +125,8 @@ for fil in tolearn:
 		mainlist.append(pair)
 		wlist.append(pair[0])
 		mlist.append(pair[1])
+		fout.write(pair[0]+'\n')
+	fout.close()
 
 print '\nLoaded ',len(mainlist),'words'
 
