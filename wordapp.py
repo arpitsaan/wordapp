@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#author: Arpit Agarwal (arpit8991@gmail.com)
 import string
 from os import system
 import sys
@@ -107,6 +108,32 @@ def wordquiz(mainlist, wlist, mlist):
 	print 'Result : '
 	print '\tcorrect :  ',correct,'/',count
 
+def flasher(mainlist):
+	system('clear')
+	print '\n\n\tThe words you selected in the set will be displayed as flashcards, try to recall their meaning'
+#	print '\nKeybindings:'
+#	print 'Enter\tDisplay next word'
+#	print 'r\tGoto next word and REPEAT the current word later'
+	print '\n(Press ENTER to start)\n'
+	shufflelist=mainlist
+	a=shuffle(shufflelist) 
+#	print shufflelist
+	raw_input('')
+	total=len(shufflelist)
+	count=1
+	for wordpair in shufflelist:
+		system('clear')
+		#mainlist.remove(wordpair)
+		remaining=total-count
+		print 'Progress:'+' ['+str(count)+'/'+str(total)+']\t[' +' '*count+'>=>O'+' '*remaining +']'
+#		print shufflelist
+		count=count+1
+		print '\n----------------------------------------------------------------------------\n\n\t\t',wordpair[0].upper(),'\n\n----------------------------------------------------------------------------'
+		dump=raw_input('')
+		print '\n\t',wordpair[1]
+		val=raw_input('')
+	
+
 wlist=[]
 mlist=[]
 llist=[]
@@ -144,11 +171,15 @@ else:
 dump =raw_input('')
 dump=system('clear')
 
+print "\n\tWORDAPP MENU\n"
 print "1. Meanings to the words "
 print "2. Word Meanings mcq "
-print "3. Exit"
+print "3. Flash Words"
+print "4. Exit"
 ch=int(input("Enter Your choice (1-3) :  "))
 if ch == 1:
 	meaningsword(mainlist)
 elif ch ==2:
 	wordquiz(mainlist,wlist,mlist)
+elif ch == 3:
+	flasher(mainlist)
